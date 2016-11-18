@@ -1,16 +1,17 @@
 # Site settings
 email: 
-baseurl: ""
+baseurl: 
 paginate: 5
 paginate_path: "/blog/page-:num"
 google_analytics: 
+main_image: main.jpg
 
 # SEO settings
 title: The Bela blog
 description: A blog about Bela.
 url: ""
 twitter_username: 
-default_img: http://i.imgur.com/tthpnHa.gifv
+default_img: 
 
 # Profile settings
 name: 
