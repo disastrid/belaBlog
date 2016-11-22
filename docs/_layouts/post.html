@@ -14,7 +14,11 @@ layout: default
       <h1 itemprop="name headline">{{ page.title }}</h1>
       {% if page.categories.size > 0 %}
         <span>
-          Posted in {{ page.categories | join: ', ' }}
+        
+          Posted in 
+          {% for cat in page.categories %}
+          <a class="category_link" href="{{site.baseurl}}/category/{{ cat }}">{{ cat }}</a>
+          {% endfor %}
         </span>
       {% endif %}
       <span></span>
@@ -26,22 +30,24 @@ layout: default
   </section>
 
   <section class="profile">
-    <div class="profile__card">
+    <!-- <p>{{ page.author }}</p> -->
+<!--     {% for author in page.author %}
+<p>{% include authors/{{ page.author }}.html %}</p>
+    {% endfor %}
+ -->       <div class="profile__card">
       <div class="profile__img">
-        <figure class="absolute-bg" style="background-image: url('{{ site.profile_img }}');"></figure>
+        <figure class="absolute-bg" style="background-image: url('{{ site.authors.image }}');"></figure>
       </div>
       <div class="profile__container">
-        <p>{{ site.profile }}</p>
-        {% if site.email or site.social %}
-          <ul class="profile__social">
-            {% if site.email %}
-              <li><a class="fa fa-lg fa-envelope-o" href="mailto:{{ site.email }}"></a></li>
-            {% endif %}
+            {% for author in page.author %}
+<p>{% include authors/{{ page.author }}.html %}</p>
+    {% endfor %}
+
             {% for social in site.social %}
               <li><a class="fa fa-lg fa-{{ social[0] }}" href="{{ social[1] }}" target="_blank"></a></li>
             {% endfor %}
           </ul>
-        {% endif %}
+        <!-- {% endif %} -->
       </div>
     </div>
   </section>
